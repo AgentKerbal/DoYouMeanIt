@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+  <title>Do you mean it ?</title>
+  <style>
+    body { font-family: system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #222; color: #fff; }
+    .container { background: #333; padding: 1rem; border-radius: 8px; text-align: center; width: 500px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+    
+    /* The Canvas (Unselectable) */
+    canvas {
+      background: #000;
+      border: 2px solid #444;
+      margin: 15px 0;
+      border-radius: 8px
+      /* cursor: not-allowed; */
+    }
+
+    input { padding: 12px; font-size: 1.1rem; width: 100%; box-sizing: border-box; margin-bottom: 10px; background: #444; border: 2px solid #555; color: white; font-family: system-ui, sans-serif; border-radius: 8px; text-align: center;}
+    input:focus { outline: none; border-color: #0f0; }
+    input::placeholder {font-size: 1.1rem;}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Did you mean it ? 🤨</h1>
+    <p>Type the verification hash below to proceed:</p>
+    
+    <canvas id="codeCanvas" width="480" height="70"></canvas>
+    
+    <input type="text" id="codeInput" autocomplete="off" placeholder="Type the hash here...">
+  </div>
+  <script src="challenge.js"></script>
+</body>
+</html>

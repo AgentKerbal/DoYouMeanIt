@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Do you mean it ?",
+  "version": "1.0",
+  "description": "Did you really mean to open that website ? Prove it by typing a 16 character long hash code.",
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Manage Blocked Sites"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["challenge.html", "challenge.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "DoYouMeanIt@AgentKerbal",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "icons":{
+    "32": "32.png",
+    "64": "64.png"
+  }
+}

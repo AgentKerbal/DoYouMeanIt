@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body { width: 250px; font-family: sans-serif; padding: 10px; background: #303030;}
+    input { width: 70%; padding: 5px; border-radius: 4px; background-color: #444444; color: white; font-weight: bold;}
+    button { padding: 5px; cursor: pointer; background-color: #444444; color: white; border-radius: 4px; padding: 5px;}
+    ul { list-style: none; padding: 0; color: white;}
+    li { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .remove { color: red; cursor: pointer; font-weight: bold; }
+    h3 { color: white; text-align: center;}
+  </style>
+</head>
+<body>
+  <div class="switch-row">
+  <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch"
+           class="onoffswitch-checkbox"
+           id="myonoffswitch" tabindex="0">
+    <label class="onoffswitch-label" for="myonoffswitch"></label>
+  </div>
+
+  <span class="switch-text">Enable extension</span>
+</div>
+
+ <hr style="margin-top:1em;margin-bottom:-0.5em;">
+
+  <h3>Do you mean it ? 🤨</h3>
+
+
+
+  <div>
+    <input type="text" id="siteInput" placeholder="blockme.com">
+    <button id="addBtn">Add</button>
+  </div>
+  <ul id="siteList"></ul>
+  <script src="popup.js"></script>
+
+  <div class="credits-section">
+    Made by <a href="https://github.com/AgentKerbal" target="_blank">AgentKerbal</a> <br>
+    Extension icon by <a href="https://fonts.google.com/noto/specimen/Noto+Color+Emoji" target="_blank">Google Noto Color Emoji</a>
+  </div>
+</body>
+</html>
