@@ -1,6 +1,6 @@
 # Do you mean it ? 🤨
 ### A Firefox productivity extension that makes sure you *really* wanted to visit that website.
-
+![An example of the "Do you mean it ?" challenge page](example.png)
 ## What it does
 This extension acts as a speed bump for your brain. Instead of mindlessly opening a tab, you are forced to manually type a random 16-character hash to proceed. It is designed to be slightly annoying, because that's the only way you'll actually stop.
 
