@@ -4,32 +4,39 @@
 <head>
   <title>Do you mean it ?</title>
   <style>
-    body { font-family: system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #222; color: #fff; }
-    .container { background: #333; padding: 1rem; border-radius: 8px; text-align: center; width: 500px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-    
+    body { margin: 0; font-family: system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background: #222; color: #fff; }
+    .container { background: #333; padding: 1.5rem; border-radius: 8px; text-align: center; width: 500px; max-width: 90vw; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+    h1 { margin: 0 0 0.5rem; }
+    .subtitle { margin: 0 0 0.25rem; }
+    .target { margin: 0; font-size: 0.85rem; color: #aaa; }
+    .target strong { color: #ddd; font-weight: 600; }
+
     /* The Canvas (Unselectable) */
     canvas {
       background: #000;
       border: 2px solid #444;
       margin: 15px 0;
-      border-radius: 8px
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
       /* cursor: not-allowed; */
     }
 
-    input { padding: 12px; font-size: 1.1rem; width: 100%; box-sizing: border-box; margin-bottom: 10px; background: #444; border: 2px solid #555; color: white; font-family: system-ui, sans-serif; border-radius: 8px; text-align: center;}
-    input:focus { outline: none; border-color: #0f0; }
-    input::placeholder {font-size: 1.1rem;}
+    input { padding: 12px; font-size: 1.1rem; width: 100%; box-sizing: border-box; margin-bottom: 10px; background: #444; border: 2px solid #555; color: white; font-family: ui-monospace, 'Courier New', Courier, monospace; letter-spacing: 0.05em; border-radius: 8px; text-align: center;}
+    input:focus { outline: none; border-color: #00FF41; }
+    input::placeholder {font-size: 1.1rem; font-family: system-ui, sans-serif; letter-spacing: normal;}
 
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Did you mean it ? 🤨</h1>
-    <p>Type the verification hash below to proceed:</p>
-    
+    <p class="subtitle">Type the verification hash below to proceed:</p>
+    <p class="target" id="targetLine"></p>
+
     <canvas id="codeCanvas" width="480" height="70"></canvas>
-    
-    <input type="text" id="codeInput" autocomplete="off" placeholder="Type the hash here...">
+
+    <input type="text" id="codeInput" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Type the hash here..." autofocus>
   </div>
   <script src="challenge.js"></script>
 </body>

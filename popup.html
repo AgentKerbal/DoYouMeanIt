@@ -3,15 +3,6 @@
 <meta charset="UTF-8">
 <head>
   <link rel="stylesheet" href="popup.css">
-  <style>
-    body { width: 250px; font-family: sans-serif; padding: 10px; background: #303030;}
-    input { width: 70%; padding: 5px; border-radius: 4px; background-color: #444444; color: white; font-weight: bold;}
-    button { padding: 5px; cursor: pointer; background-color: #444444; color: white; border-radius: 4px; padding: 5px;}
-    ul { list-style: none; padding: 0; color: white;}
-    li { display: flex; justify-content: space-between; margin-bottom: 5px; }
-    .remove { color: red; cursor: pointer; font-weight: bold; }
-    h3 { color: white; text-align: center;}
-  </style>
 </head>
 <body>
   <div class="switch-row">
@@ -25,14 +16,12 @@
   <span class="switch-text">Enable extension</span>
 </div>
 
- <hr style="margin-top:1em;margin-bottom:-0.5em;">
+  <hr class="divider">
 
   <h3>Do you mean it ? 🤨</h3>
 
-
-
-  <div>
-    <input type="text" id="siteInput" placeholder="blockme.com">
+  <div class="input-row">
+    <input type="text" id="siteInput" placeholder="blockme.com" autocomplete="off" spellcheck="false">
     <button id="addBtn">Add</button>
   </div>
   <ul id="siteList"></ul>
