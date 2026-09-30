@@ -74,10 +74,15 @@ browser.runtime.onMessage.addListener((message) => {
 });
 
 // --- THE BOUNCER ---
+// NOTE: blockedSites/extensionEnabled are read fresh from storage on every
+// request (not from the in-memory cache). In MV3 the background is an event
+// page: it suspends when idle and wakes on demand, so the cache can be empty
+// or stale at the moment a request arrives. Reading storage here closes that race.
 browser.webRequest.onBeforeRequest.addListener(
     async (details) => {
-        const settings = await browser.storage.local.get("extensionEnabled");
+        const settings = await browser.storage.local.get(["extensionEnabled", "blockedSites"]);
         if (settings.extensionEnabled === false) return;
+        const sites = settings.blockedSites || blockedSites || [];
 
         if (!details.url.startsWith("http")) return;
         if (details.url.includes("challenge.html")) return;
@@ -85,7 +90,8 @@ browser.webRequest.onBeforeRequest.addListener(
         const url = new URL(details.url);
         const hostname = url.hostname;
 
-        if (isBlockedHost(hostname)) {
+        const blocked = sites.some(site => matchesEntry(hostname, site));
+        if (blocked) {
             // If it's NOT in our safe list, block it.
             if (!isUnlockedHost(hostname)) {
                 return {
